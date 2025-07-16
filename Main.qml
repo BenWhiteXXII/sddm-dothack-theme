@@ -25,27 +25,15 @@ Rectangle {
 	AnimatedImage {
 		width: parent.width
 		height: parent.height
-		fillMode: Image.Tile
-		source: "bgN5.gif"
+		fillMode: Image.PreserveAspectCrop
+		source: "altmit3.gif"
 	}
 
 	ColumnLayout {
 		width: parent.width
 		height: parent.height
-		AnimatedImage{
-			Layout.alignment: Qt.AlignCenter
-			Layout.topMargin: 2
-			width: 192
-			height: 192
-			source: "WiredLogIn.gif"
-		}
-		AnimatedImage{
-			Layout.alignment: Qt.AlignCenter
-			Layout.bottomMargin: 20
-			height: 50
-			source: "whoIsUser.gif"
-		}
 		Qqc.Label {
+			Layout.topMargin: 500
 			Layout.alignment: Qt.AlignCenter
 			text: "Ｕｓｅｒ ＩD:"
 			color: "#c1b492"
@@ -56,11 +44,11 @@ Rectangle {
 			Layout.alignment: Qt.AlignCenter
 			text: userModel.lastUser
 			style: TextFieldStyle {
-				textColor: "#c1b492"
+				textColor: "#63758C"
 				background: Rectangle {
 					color: "#000"
 					implicitWidth: 200
-					border.color: "#d2738a"
+					border.color: "#0F4D99"
 				}
 			}
 			KeyNavigation.backtab: shutdownBtn; KeyNavigation.tab: password
@@ -82,11 +70,11 @@ Rectangle {
 			echoMode: TextInput.Password
 			Layout.alignment: Qt.AlignCenter
 			style: TextFieldStyle {
-				textColor: "#c1b492"
+				textColor: "#63758C"
 				background: Rectangle {
 					color: "#000"
 					implicitWidth: 200
-					border.color: "#d2738a"
+					border.color: "#0F4D99"
 				}
 			}
 			KeyNavigation.backtab: username; KeyNavigation.tab: session
@@ -104,12 +92,12 @@ Rectangle {
 			width: 200
 			Rectangle {
 				anchors.fill: parent
-				color: "#d2738a"
+				color: "#1A5AA7"
 			}
 			Qqc.Label {
 				Layout.alignment: Qt.AlignCenter
 				text: "Ｌｏｇｉｎ"
-				color: "#c1b492"
+				color: "#FFFFFF"
 				font.pixelSize: 20
 			}
 			MouseArea {
@@ -120,11 +108,11 @@ Rectangle {
 	}
 	AnimatedImage {
 		id: shutdownBtn
-		height: 80
-		width: 80
-		y: 10
-		x: Window.width - width - 10
-		source: "VisLain.gif"
+		// height: 120
+		width: 120
+		y: 0
+		x: Window.width - width
+		source: "power.gif"
 		fillMode: Image.PreserveAspectFit
 		MouseArea {
 			anchors.fill: parent
@@ -141,30 +129,6 @@ Rectangle {
 			}
 		}
 	}
-	AnimatedImage {
-		id: rebootBtn
-		anchors.right: shutdownBtn.left
-		anchors.rightMargin: 5
-		y: shutdownBtn.y + 10
-		height: 70
-		width: 60
-		source: "lain_myese.gif"
-		fillMode: Image.PreserveAspectFit
-		MouseArea {
-			anchors.fill: parent
-			hoverEnabled: true
-			onClicked: sddm.reboot()
-			onEntered: {
-				var component = Qt.createComponent("RebootToolTip.qml");
-				if (component.status == Component.Ready) {
-					var tooltip = component.createObject(rebootBtn);
-					tooltip.x = -45
-					tooltip.y = 50
-				tooltip.destroy(600);
-				}
-			}
-		}
-	}
 	ComboBox {
 		id: session
 		height: 30
@@ -174,16 +138,16 @@ Rectangle {
 		model: sessionModel
 		index: sessionModel.lastIndex
 		color: "#000"
-		borderColor: "#d2738a"
-		focusColor: "#d2738a"
-		hoverColor: "#d2738a"
-		textColor: "#c1b492"
+		borderColor: "#0F4D99"
+		focusColor: "#2D92F5"
+		hoverColor: "#4AA5F6"
+		textColor: "#63758C"
 		arrowIcon: "angle-down.png"
 		KeyNavigation.backtab: password; KeyNavigation.tab: rebootBtn;
 	}
 	Audio {
 		id: bgMusic
-		source: "bg_music.wav"
+		source: "loadmenu.mp3"
 		autoPlay: true
 		loops: Audio.Infinite
 	}
@@ -205,4 +169,3 @@ Rectangle {
 		}
 	}
 }
-
