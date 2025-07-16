@@ -14,7 +14,7 @@ This theme uses mostly modified assets (including this readme) present in the ab
 - Install the dependencies ```qt5-multimedia``` & ```qt5-quickcontrols``` using your package manager.
 - Wav audio codecs are needed to play the sound, make sure you have package(s) that fulfill that installed.
 - Download the [latest release](https://github.com/lll2yu/sddm-lain-wired-theme/releases/latest)
-- Decompress the `*.zip` file or run `git clone https://github.com/benwhitexxii/sddm-dothack-theme`
+- Decompress the `*.zip` or `*.tar.gz` file or run `git clone https://github.com/benwhitexxii/sddm-dothack-theme`
 - Copy all files and directories into `/usr/share/sddm/themes/sddm-dothack-theme/` or open a terminal and run `sudo cp -r sddm-dothack-theme /usr/share/sddm/themes`
 
 ### Usage
